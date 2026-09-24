@@ -53,6 +53,8 @@ export enum ActivityType {
   ViewedHostRecoveryLockPassword = "viewed_host_recovery_lock_password",
   SetHostRecoveryLockPassword = "set_host_recovery_lock_password",
   RotatedHostRecoveryLockPassword = "rotated_host_recovery_lock_password",
+  RotatedDiskEncryptionKey = "rotated_disk_encryption_key",
+  FailedToRotateDiskEncryptionKey = "failed_to_rotate_disk_encryption_key",
   EnabledRecoveryLockPasswords = "enabled_recovery_lock_passwords",
   DisabledRecoveryLockPasswords = "disabled_recovery_lock_passwords",
   /** Note: BE not renamed (yet) from macOS even though activity is also used for iOS and iPadOS */
@@ -244,6 +246,8 @@ export type IHostPastActivityType =
   | ActivityType.ViewedHostRecoveryLockPassword
   | ActivityType.SetHostRecoveryLockPassword
   | ActivityType.RotatedHostRecoveryLockPassword
+  | ActivityType.RotatedDiskEncryptionKey
+  | ActivityType.FailedToRotateDiskEncryptionKey
   | ActivityType.UnlockedHost
   | ActivityType.InstalledSoftware
   | ActivityType.InstalledAllSelfServiceSoftware
@@ -610,6 +614,10 @@ export const ACTIVITY_TYPE_TO_FILTER_LABEL: Record<ActivityType, string> = {
   deleted_conditional_access_integration_microsoft:
     "Deleted conditional access integration: Microsoft",
   escrowed_disk_encryption_key: "Escrowed disk encryption key",
+  [ActivityType.RotatedDiskEncryptionKey]:
+    "Triggered disk encryption key rotation",
+  [ActivityType.FailedToRotateDiskEncryptionKey]:
+    "Failed to rotate disk encryption key",
   [ActivityType.CreatedDiskEncryptionPIN]: "Created disk encryption PIN",
   created_custom_variable: "Created custom variable",
   updated_custom_variable: "Updated custom variable",
