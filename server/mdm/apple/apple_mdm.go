@@ -1704,7 +1704,7 @@ func IOSiPadOSRefetch(ctx context.Context, ds fleet.Datastore, commander *MDMApp
 	}
 
 	start := time.Now()
-	devices, err := ds.ListIOSAndIPadOSToRefetch(ctx, 1*time.Hour)
+	devices, err := ds.ListIOSAndIPadOSToRefetch(ctx, 1*time.Minute)
 	if err != nil {
 		return ctxerr.Wrap(ctx, err, "list ios and ipados devices to refetch")
 	}
