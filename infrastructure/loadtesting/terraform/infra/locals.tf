@@ -66,6 +66,9 @@ locals {
       FLEET_AUTH_SSO_SESSION_VALIDITY_PERIOD         = "15m"
       FLEET_MDM_SSO_RATE_LIMIT_PER_MINUTE            = "500"
       FLEET_SERVER_GZIP_RESPONSES                    = "true"
+      # nano_ cleanup load test #52597: run the hourly Apple MDM command cleanup at its built-in ceiling
+      FLEET_MDM_APPLE_COMMAND_CLEANUP_MAX_ROW_DELETIONS_PER_RUN     = "500000"
+      FLEET_MDM_APPLE_COMMAND_CLEANUP_MAX_COMMAND_DELETIONS_PER_RUN = "500000"
       FLEET_DEV_ANDROID_PROXY_ENDPOINT               = "http://${resource.aws_lb.internal.dns_name}/"
 
       # Load TLS Certificate for RDS Authentication
